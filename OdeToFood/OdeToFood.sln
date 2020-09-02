@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdeToFood", "OdeToFood\OdeToFood.csproj", "{CC844D1C-4D0B-4F47-9D5B-83EDE76DEFDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood", "OdeToFood\OdeToFood.csproj", "{CC844D1C-4D0B-4F47-9D5B-83EDE76DEFDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdeToFood.Core", "OdeToFood.Core\OdeToFood.Core.csproj", "{1A6D813A-6D65-4B2F-9DB4-3FA410EB1B0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood.Core", "OdeToFood.Core\OdeToFood.Core.csproj", "{1A6D813A-6D65-4B2F-9DB4-3FA410EB1B0E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood.Data", "OdeToFood.Data\OdeToFood.Data.csproj", "{3AD7405E-9F04-4C17-BA7A-74D99038F653}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CC844D1C-4D0B-4F47-9D5B-83EDE76DEFDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -44,5 +43,23 @@ Global
 		{1A6D813A-6D65-4B2F-9DB4-3FA410EB1B0E}.Release|x64.Build.0 = Release|Any CPU
 		{1A6D813A-6D65-4B2F-9DB4-3FA410EB1B0E}.Release|x86.ActiveCfg = Release|Any CPU
 		{1A6D813A-6D65-4B2F-9DB4-3FA410EB1B0E}.Release|x86.Build.0 = Release|Any CPU
+		{3AD7405E-9F04-4C17-BA7A-74D99038F653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AD7405E-9F04-4C17-BA7A-74D99038F653}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AD7405E-9F04-4C17-BA7A-74D99038F653}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3AD7405E-9F04-4C17-BA7A-74D99038F653}.Debug|x64.Build.0 = Debug|Any CPU
+		{3AD7405E-9F04-4C17-BA7A-74D99038F653}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3AD7405E-9F04-4C17-BA7A-74D99038F653}.Debug|x86.Build.0 = Debug|Any CPU
+		{3AD7405E-9F04-4C17-BA7A-74D99038F653}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AD7405E-9F04-4C17-BA7A-74D99038F653}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AD7405E-9F04-4C17-BA7A-74D99038F653}.Release|x64.ActiveCfg = Release|Any CPU
+		{3AD7405E-9F04-4C17-BA7A-74D99038F653}.Release|x64.Build.0 = Release|Any CPU
+		{3AD7405E-9F04-4C17-BA7A-74D99038F653}.Release|x86.ActiveCfg = Release|Any CPU
+		{3AD7405E-9F04-4C17-BA7A-74D99038F653}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F3A653F-6FC4-480E-A983-BFE4CB7D75B8}
 	EndGlobalSection
 EndGlobal

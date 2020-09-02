@@ -8,7 +8,7 @@ namespace OdeToFood.Data.Implementations
 {
     public class InMemoryRestaurantData : IRestaurantData
     {
-        private List<Restaurant> _restaurants;
+        private readonly List<Restaurant> _restaurants;
 
         public InMemoryRestaurantData()
         {
@@ -21,12 +21,14 @@ namespace OdeToFood.Data.Implementations
         }
 
         /// <summary>
-        /// Get all restaurants.
+        /// Get all restaurants by name.
         /// </summary>
-        /// <returns>A list of <see of="Restaurant"></returns>
-        public IEnumerable<Restaurant> GetAll()
+        /// <param name="name">Restaurant name.</param>
+        /// <returns>A list of <see cref="Restaurant"/></returns>
+        public IEnumerable<Restaurant> GetByName(string name)
         {
             return from restaurant in _restaurants
+                where string.IsNullOrEmpty(name) || restaurant.Name.StartsWith(name)
                 orderby restaurant.Name
                 select restaurant;
         }

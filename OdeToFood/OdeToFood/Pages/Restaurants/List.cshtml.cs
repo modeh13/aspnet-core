@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
@@ -17,6 +15,9 @@ namespace OdeToFood.Pages.Restaurants
 
         public string Message { get; set; }
         public IEnumerable<Restaurant> Restaurants { get; set; }
+        
+        [BindProperty(SupportsGet = true)]
+        public string SearchTerm { get; set; }
 
         public ListModel(IConfiguration configuration,
                          IRestaurantData restaurantData)
@@ -25,10 +26,17 @@ namespace OdeToFood.Pages.Restaurants
             _restaurantData = restaurantData ?? throw new ArgumentNullException(nameof(restaurantData));
         }
 
+        // ASP.NET Core will map the parameter searchTerm from the View using the name attribute of input.
+        //public void OnGet(string searchTerm)
+        //{
+        //    Message = _configuration["Message"];
+        //    Restaurants = _restaurantData.GetByName(searchTerm);
+        //}
+
         public void OnGet()
         {
             Message = _configuration["Message"];
-            Restaurants = _restaurantData.GetAll();
+            Restaurants = _restaurantData.GetByName(SearchTerm);
         }
     }
 }

@@ -21,6 +21,16 @@ namespace OdeToFood.Data.Implementations
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Restaurant GetById(int id)
+        {
+            return _restaurants.FirstOrDefault(restaurant => restaurant.Id == id);
+        }
+
+        /// <summary>
         /// Get all restaurants by name.
         /// </summary>
         /// <param name="name">Restaurant name.</param>

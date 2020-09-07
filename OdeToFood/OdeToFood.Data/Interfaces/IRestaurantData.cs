@@ -8,5 +8,11 @@ namespace OdeToFood.Data.Interfaces
         Restaurant GetById(int id);
 
         IEnumerable<Restaurant> GetByName(string name);
+
+        Restaurant Create(Restaurant restaurant);
+
+        Restaurant Update(Restaurant updatedRestaurant);
+
+        int Commit();
     }
 }

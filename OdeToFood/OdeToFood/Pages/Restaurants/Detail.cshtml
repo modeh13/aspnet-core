@@ -2,6 +2,12 @@
 @model OdeToFood.Pages.Restaurants.DetailModel
 @{
 }
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="alert alert-info">
+        @Model.Message
+    </div>
+}
 
 <h2>@Model.Restaurant.Name</h2>
 

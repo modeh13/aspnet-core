@@ -1,0 +1,35 @@
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-- ASP.NET Core 
+-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- Program.cs: It is the start point of an ASP.NET application, it contains the main method.
+- Startup.cs: It is executed from main method at Program.cs, it has Configure, and ConfigureServices methods.
+- ConfigureServices: It is where we can add the dependencies to the IoC container.
+
+-- EntityFramework Core
+- Install EntityFrameworkCore package.
+- Install EntityFrameworkCore.Design package.
+- Install EntityFrameworkCore.Tools package.
+
+- Use the EntityFrameworkCore.Tools CLI at Package Manager Console to create migrations.
+https://ef.readthedocs.io/en/latest/entity-framework/core/miscellaneous/cli/powershell.html
+
+Get-DbContext - To get the current DbContext defined in the application.
+Add-Migration [Migration name] - It will create some C# code related to our context.
+Update-Database -Migration [Migration Name] - It will update the database.
+
+
+-- ASP.NET MVC Core
+- _Layout.cshtml: It is usually a file that is shared amongs the application, this is not a page since it does not have @page directive, it is a View. Control my user interface. Scripts, CSS, and references.
+- _ViewStart.cshtml: This is magical file, it is executed at beginning when a Page/View is going to be rendered, it defines general settings for Pages/Views like what Layout they are going to use, That is why if you do not define explicitly a Layout, the ViewStart has it.
+- _ViewImports.cshtml: It describes or configures the general imports for all Pages/Views like default Namespace, imports the TagHelpers, also you can register your custom helpers.
+
+@RenderBody(): It will render or display the content of a requested Page/View.
+@RenderSection("sectionName", required): It behaves similar to RenderBody but for a particular portion of HTML; required parameters means, Pages/Views always need to define the section on their own.
+
+@section sectionName {
+	This is the way on how to load a content in particular section.
+}
+
+- Underscore: _Layout.cshtml: It is a component that is not required for rendering, it's typically required by other views. These files are not primary Page/View.
+- PartialViews: It depends on the Parent View to get its Model, in other words, Parent View is responsible of sending the Model to each Partial View. PartialViews are commonly used to reuse HTML or portion of pages, and distribute the content of a large page.
+- ViewComponents: They are a kind of special types in ASP .Net Core, they differ of PartialViews since they have their own DataAccess and do not responde to a particular HTTP Request. They are completely indenpendent.

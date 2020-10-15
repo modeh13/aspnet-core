@@ -20,6 +20,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>528da8a1-3b8b-45ba-a0d6-eca3c5b66aa1</UserSecretsId>
   </PropertyGroup>
 
+   <Target Name="PostBuild" AfterTargets="ComputeFilesToPublish">
+      <Exec Command="npm install" />
+   </Target>
+
+   <ItemGroup>
+      <Content Include="node_modules/**" CopyToPublishDirectory="PreserveNewest" />
+   </ItemGroup>
 </Project>

@@ -33,3 +33,25 @@ Update-Database -Migration [Migration Name] - It will update the database.
 - Underscore: _Layout.cshtml: It is a component that is not required for rendering, it's typically required by other views. These files are not primary Page/View.
 - PartialViews: It depends on the Parent View to get its Model, in other words, Parent View is responsible of sending the Model to each Partial View. PartialViews are commonly used to reuse HTML or portion of pages, and distribute the content of a large page.
 - ViewComponents: They are a kind of special types in ASP .Net Core, they differ of PartialViews since they have their own DataAccess and do not responde to a particular HTTP Request. They are completely indenpendent.
+
+- appsettings.json: This is the configuration file used to CreateDefaultWebHost, .Net Core has the abitility of override settings depending on different environments.
+
+-- Deploying ASP.NET Core Web Applications.
+- Windows: IIS or Kestrel.
+- Linux: Nginx or Apache.
+
+- Using .Net Core CLI:
+dotnet publish -o D:\German\Publishments\OdeToFood
+dotnet publish -o D:\German\Publishments\OdeToFood --self-contained -r win-x64 (Search for it on a Web - Runtime Identifier).
+
+- If we depend on node_modules folder for some JavaScript libraries, you should include the below lines at .csproj to automatize the process during Publish.
+<Target Name="PostBuild" AfterTargets="ComputeFilesToPublish">
+  <Exec Command="npm install" />
+</Target>
+
+<ItemGroup>
+  <Content Include="node_modules/**" CopyToPublishDirectory="PreserveNewest" />
+</ItemGroup>
+
+- Create a SQL Server role for Windows Authentication using IIS identity:
+ISS AppPool\OdeToFood (OdeToFood is the Application Pool on IIS).

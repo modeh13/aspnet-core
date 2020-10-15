@@ -9,6 +9,10 @@ using OdeToFood.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using Microsoft.AspNetCore.Http;
+using System;
+using System.Runtime.InteropServices.ComTypes;
+using System.Xml.Linq;
 
 namespace OdeToFood
 {
@@ -47,6 +51,7 @@ namespace OdeToFood
                 app.UseHsts();
             }
 
+            app.Use(SayHelloMiddleware);
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions
@@ -55,6 +60,7 @@ namespace OdeToFood
                 RequestPath = "/node_modules"
             });
 
+            app.UseCookiePolicy();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -64,6 +70,20 @@ namespace OdeToFood
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
             });
+        }
+
+        private RequestDelegate SayHelloMiddleware(RequestDelegate next)
+        {
+            return async ctx =>
+            {
+                if (ctx.Request.Path.StartsWithSegments("/hello"))
+                {
+                    await ctx.Response.WriteAsync("Hello, World!");
+                }
+                else {
+                    await next(ctx);
+                }
+            };
         }
     }
 }
